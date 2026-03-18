@@ -111,7 +111,7 @@ class Game:
     def draw_button(self, center, text):
         rect = self.button_img.get_rect(center=center)
         self.screen.blit(self.button_img, rect)
-        label = self.font_medium.render(text, True, WHITE)
+        label = self.font_medium.render(text, True, YELLOW)
         self.screen.blit(label, label.get_rect(center=rect.center))
         return rect
 
@@ -119,9 +119,9 @@ class Game:
         hp_ratio = self.player.hp / MAX_HP
         pygame.draw.rect(self.screen, GRAY, (20, 20, 220, 24), border_radius=12)
         pygame.draw.rect(self.screen, GREEN, (20, 20, int(220 * hp_ratio), 24), border_radius=12)
-        hp_text = self.font_small.render(f'Vida: {self.player.hp}/{MAX_HP}', True, WHITE)
-        score_text = self.font_small.render(f'Pontuação: {self.score}', True, WHITE)
-        help_text = self.font_small.render('WASD/Setas para mover | Mouse para mirar | Clique esquerdo para atirar', True, WHITE)
+        hp_text = self.font_small.render(f'Vida: {self.player.hp}/{MAX_HP}', True, YELLOW)
+        score_text = self.font_small.render(f'Pontuação: {self.score}', True, YELLOW)
+        help_text = self.font_small.render('WASD/Setas para mover | Mouse para mirar | Clique esquerdo para atirar', True, YELLOW)
         self.screen.blit(hp_text, (26, 20))
         self.screen.blit(score_text, (20, 52))
         self.screen.blit(help_text, (20, HEIGHT - 34))
