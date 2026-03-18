@@ -91,8 +91,11 @@ class Zombie(pygame.sprite.Sprite):
             direction = direction.normalize()
         self.pos += direction * self.speed * dt
 
-        angle = -math.degrees(math.atan2(direction.y, direction.x))
-        self.image = pygame.transform.rotozoom(self.original_image, angle, 1)
+        if direction.x < 0:
+            self.image = pygame.transform.flip(self.original_image, True, False)
+        else:
+            self.image = self.original_image
+
         self.rect = self.image.get_rect(center=self.pos)
 
 
