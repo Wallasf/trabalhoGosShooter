@@ -141,9 +141,9 @@ class Game:
         self.screen.blit(self.menu_bg, (0, 0))
         self.screen.blit(self.logo, self.logo.get_rect(center=(WIDTH // 2, 120)))
 
-        subtitle = self.font_medium.render('Policial vs Zumbis', True, WHITE)
-        text1 = self.font_small.render('Sobreviva, elimine zumbis e proteja a cidade.', True, WHITE)
-        text2 = self.font_small.render('Pressione ENTER ou clique em JOGAR.', True, WHITE)
+        subtitle = self.font_medium.render('Policial vs Zumbis', True, YELLOW)
+        text1 = self.font_small.render('WASD/Setas para mover | Mouse para mirar | Clique esquerdo para atirar', True, YELLOW)
+        text2 = self.font_small.render('Pressione ENTER ou clique em JOGAR.', True, YELLOW)
         self.screen.blit(subtitle, subtitle.get_rect(center=(WIDTH // 2, 215)))
         self.screen.blit(text1, text1.get_rect(center=(WIDTH // 2, 255)))
         self.screen.blit(text2, text2.get_rect(center=(WIDTH // 2, 282)))
