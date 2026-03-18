@@ -51,7 +51,7 @@ class Game:
         self.floaters = []
         self.spawn_interval = SPAWN_INTERVAL
         self.game_over_played = False
-        pygame.mouse.set_visible(False)
+
 
     def spawn_zombie(self):
         zombie = Zombie(self.player, self.zombie_img)
@@ -180,6 +180,7 @@ class Game:
     def start_game(self):
         self.reset_game()
         self.state = 'playing'
+        pygame.mouse.set_visible(False)
 
     def handle_menu_click(self, pos):
         if self.play_button.collidepoint(pos):
