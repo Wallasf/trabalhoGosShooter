@@ -6,7 +6,7 @@ from .settings import (
     WIDTH, HEIGHT, PLAYER_SPEED, BULLET_SPEED,
     ZOMBIE_SPEED_MIN, ZOMBIE_SPEED_MAX, MAX_HP)
 
-
+# criando Classe player e definindo funçoes
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, image):
         super().__init__()
@@ -44,6 +44,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center=self.rect.center)
 
 
+# criando classe "bala"
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, pos, direction, image):
         super().__init__()
@@ -63,6 +64,7 @@ class Bullet(pygame.sprite.Sprite):
             self.kill()
 
 
+# criando classe Zumbie e ajustando a velocidade, direçao e frequancia
 class Zombie(pygame.sprite.Sprite):
     def __init__(self, target, image):
         super().__init__()
