@@ -1,10 +1,10 @@
+# importando módulos
 import math
 import random
 import pygame
 from .settings import (
     WIDTH, HEIGHT, PLAYER_SPEED, BULLET_SPEED,
-    ZOMBIE_SPEED_MIN, ZOMBIE_SPEED_MAX, MAX_HP
-)
+    ZOMBIE_SPEED_MIN, ZOMBIE_SPEED_MAX, MAX_HP)
 
 
 class Player(pygame.sprite.Sprite):
