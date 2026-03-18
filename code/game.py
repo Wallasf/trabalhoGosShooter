@@ -8,7 +8,12 @@ from .entities import Player, Bullet, Zombie, FloatingText
 class Game:
     def __init__(self):
         pygame.init()
-        pygame.mixer.init()
+
+        self.audio_enabled = True
+        try:
+            pygame.mixer.init()
+        except pygame.error:
+            self.audio_enabled = False
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption(TITLE)
         self.clock = pygame.time.Clock()
@@ -23,25 +28,19 @@ class Game:
         self.reset_game()
 
     def load_assets(self):
-        self.bg = load_image("background_city.png", (WIDTH, HEIGHT), convert_alpha=False)
-        self.menu_bg = load_image("menu_background.png", (WIDTH, HEIGHT), convert_alpha=False)
-        self.player_img = load_image("player_police.png", (72, 118))
-        self.zombie_img = load_image("zombie.png", (58, 58))
-        self.bullet_img = load_image("bullet.png", (22, 10))
-        self.logo = load_image("logo.png", (420, 130))
-        self.button_img = load_image("button.png", (240, 70))
-        self.crosshair = load_image("crosshair.png", (28, 28))
+        self.bg = load_image('background_city.png', (WIDTH, HEIGHT), convert_alpha=False)
+        self.menu_bg = load_image('menu_background.png', (WIDTH, HEIGHT), convert_alpha=False)
+        self.player_img = load_image('player_police.png', (72, 118))
+        self.zombie_img = load_image('zombie.png', (70, 70))
+        self.bullet_img = load_image('bullet.png', (22, 10))
+        self.logo = load_image('logo.png', (420, 130))
+        self.button_img = load_image('button.png', (240, 70))
+        self.crosshair = load_image('crosshair.png', (28, 28))
 
-        if self.audio_enabled:
-            self.snd_shot = load_sound("shot.wav", 0.35)
-            self.snd_hit = load_sound("hit.wav", 0.4)
-            self.snd_gameover = load_sound("gameover.wav", 0.45)
-            self.snd_click = load_sound("click.wav", 0.35)
-        else:
-            self.snd_shot = None
-            self.snd_hit = None
-            self.snd_gameover = None
-            self.snd_click = None
+        self.snd_shot = load_sound('shot.wav', 0.35)
+        self.snd_hit = load_sound('hit.wav', 0.4)
+        self.snd_gameover = load_sound('gameover.wav', 0.45)
+        self.snd_click = load_sound('click.wav', 0.35)
 
     def reset_game(self):
         self.all_sprites = pygame.sprite.Group()
